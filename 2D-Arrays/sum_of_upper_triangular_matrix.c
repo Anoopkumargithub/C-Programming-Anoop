@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(int argc, char const *argv[])
 {
-    int n,c=0;
+    int n,k=0;
     printf("Enter no. of element\n");
     scanf("%d",&n);
     int a[n][n];
@@ -13,15 +13,6 @@ int main(int argc, char const *argv[])
         }
     }
 
-    printf("input element for 2nd matrix\n");
-    int b[n][n],i,j;
-    for(int i = 0;i<n;i++){
-        for(int j=0;j<n;j++){
-            printf("Enter element %d %d\t",i,j);
-            scanf("%d",&b[i][j]);
-        }
-    }
-
     printf("1st matrix\n");
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -29,28 +20,27 @@ int main(int argc, char const *argv[])
         }
         printf("\n");
     }
-    printf("2nd matrix\n");
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            printf("%d ",b[i][j]);
-        }
-        printf("\n");
-    }
     printf("Matrix are equal or not\n");
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
-            if (a[i][j]==b[i][j]){
-                c = c+1;
+            if (j<i){
+                a[i][j]=0;
             }
             
         }
     }
-    if(c==4){
-        printf("Equal");
+    printf("Upper triangular matrix\n");
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
     }
-    else{
-        printf("Not Equal");
+    printf("sum of element\n");
+    for( int i=0;i<n;i++){
+        for (int j=0;j<n;j++)
+        k = k+a[i][j];
     }
-    
+    printf("%d",k);
     return 0;
 }
